@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resolving Password Reset Failure Case Study | Customer Support Portfolio</title>
+<style>
+/* --- General Reset --- */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+/* --- Page Background --- */
+body { background: #151515; color: #ffffff; line-height: 1.6; }
+
+/* --- Container --- */
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px 20px;
+    background: linear-gradient(90deg, #151515, #1a1a1a);
+}
+.hero h1 { color: #c51c34; font-size: 42px; margin-bottom: 15px; font-weight: 700; }
+.hero p { font-size: 20px; color: #cfcfcf; max-width: 800px; margin: 0 auto; }
+
+/* --- Section Styling --- */
+.section {
+    background: #1f1f1f;
+    padding: 30px 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    border-left: 5px solid #c51c34;
+    transition: transform 0.3s ease;
+}
+.section:hover { transform: translateY(-3px); }
+.section h2 {
+    color: #c51c34;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+.section p, .section li { color: #cfcfcf; margin-bottom: 12px; font-size: 16px; }
+
+/* --- Lists --- */
+ul { margin-left: 20px; }
+li { margin-bottom: 8px; }
+
+/* --- Live Chat Section --- */
+.chat-container {
+    background: #202020;
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 80%;
+}
+.customer { flex-direction: row; }
+.customer .msg-bubble { background: #2a2a2a; color: #ffffff; border-radius: 15px 15px 15px 0; padding: 12px 15px; }
+.agent { flex-direction: row-reverse; align-self: flex-end; }
+.agent .msg-bubble { background: #c51c34; color: #ffffff; border-radius: 15px 15px 0 15px; padding: 12px 15px; }
+.msg-avatar { width: 35px; height: 35px; border-radius: 50%; background: #c51c34; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #fff; flex-shrink: 0; font-size: 14px; }
+
+
+
+/* --- Chat Screenshot Gallery --- */
+.chat-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.chat-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.chat-gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* --- Responsive Gallery --- */
+@media(max-width: 900px) {
+    .chat-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 500px) {
+    .chat-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- Strengths & Takeaways --- */
+.strengths { display: flex; flex-direction: column; gap: 15px; }
+.strengths li { list-style: disc inside; }
+
+/* --- Bottom CTA --- */
+.bottom-cta {
+    text-align: center;
+    margin: 60px 0 100px 0;
+}
+.bottom-cta h2 { color: #c51c34; font-size: 32px; margin-bottom: 20px; font-weight: 700; }
+
+.bottom-cta .cta-btn {
+    background: #c51c34;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s, background 0.3s;
+    margin: 0 10px;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    
+    
+}
+.bottom-cta .cta-btn:hover { transform: translateY(-3px); background: #ff3648; }
+
+/* --- Responsive --- */
+@media(max-width:900px){
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 18px; }
+    .section h2 { font-size: 22px; }
+    .bottom-cta h2 { font-size: 28px; }
+    .msg-bubble { font-size: 14px; padding: 10px 12px; }
+}
+
+/* --- Button Responsive 1 --- */
+@media(max-width:400px){
+    .bottom-cta .cta-btn {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+}
+
+/* --- Button Responsive 2 --- */
+@media(max-width: 600px) {
+    .bottom-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Space between stacked buttons */
+    }
+
+    .bottom-cta .cta-btn {
+        margin: 0; /* Remove horizontal margin for stacked layout */
+        width: 80%; /* Optional: make buttons wider on mobile */
+        max-width: 300px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>Resolving Password Reset Failure (Email Not Received)</h1>
+        
+    </div>
+</section>
+
+<div class="container">
+
+<!-- Situation -->
+<div class="section">
+    <h2>Situation</h2>
+    <p>A user was locked out of their Slack account after forgetting their password and was unable to receive the password reset email.</p>
+    <p>Despite multiple attempts and checking their spam folder, the email did not arrive. The issue was urgent, as the user needed immediate access to continue their work.</p>
+</div>
+
+<!-- Task -->
+<div class="section">
+    <h2>Task</h2>
+    <p>My responsibility was to:</p>
+    <ul>
+        <li>Restore the user’s access to their account as quickly as possible</li>
+        <li>Identify and address potential causes of the missing reset email</li>
+        <li>Prevent future login disruptions by taking ownership of the root issue</li>
+        <li>Deliver a smooth, reassuring support experience under urgency</li>
+    </ul>
+</div>
+
+<!-- Action -->
+<div class="section">
+    <h2>Action</h2>
+    <p>I approached the issue using a “stabilize first, diagnose second” framework:</p>
+    <ul>
+        <li><strong>Clarified urgency and goal</strong>
+        <ul>
+            <li>Confirmed the user’s priority was immediate access (not necessarily password change)</li>
+        </ul>
+        </li>
+        
+        <li><strong>Provided an immediate workaround to restore access</strong>
+        <ul>
+            <li>Guided the user to log in using Google authentication (SSO)</li>
+            <li>This bypassed the password requirement and restored access instantly</li>
+        </ul>
+        </li>
+
+        <li><strong>Ensured continuity and user reassurance:</strong> 
+        <ul>
+            <li>Confirmed successful login and reduced urgency pressure</li>
+        </ul>
+        </li>
+        <li><strong>Took ownership of the root cause (post-resolution)</strong> 
+        <ul>
+            <li>Educated the user on possible reasons for the missing email</li>
+            <li>Set clear expectations for follow-up troubleshooting to prevent recurrence</li>
+        </ul>
+        </li>
+    </ul>
+</div>
+
+
+<!-- Result -->
+<div class="section">
+    <h2>Result</h2>
+    <ul>
+        <li>User regained account access within minutes</li>
+        <li>Urgent workflow disruption was eliminated</li>
+        <li>Frustration reduced through clear and empathetic communication</li>
+        <li>Potential repeat issue mitigated through proactive guidance</li>
+    </ul>
+</div>
+
+
+<!-- Live Support Conversation (Real Screenshots) -->
+<div class="section">
+    <h2>Live Support Conversation</h2>
+
+    <p>
+        Below is a real support interaction handled using a live chat tool (HubSpot). 
+        This showcases my ability to manage customer urgency, communicate clearly, 
+        and resolve issues efficiently in a real environment.
+    </p>
+
+    <div class="chat-gallery">
+        <img src="images/project5-chat1.png" alt="Support Chat Screenshot 1">
+        <img src="images/project5-chat2.png" alt="Support Chat Screenshot 2">
+        <img src="images/project5-chat3.png" alt="Support Chat Screenshot 3">
+        <img src="images/project5-chat4.png" alt="Support Chat Screenshot 4">
+        <img src="images/project5-chat5.png" alt="Support Chat Screenshot 5">
+        <img src="images/project5-chat6.png" alt="Support Chat Screenshot 6">
+        <img src="images/project5-chat7.png" alt="Support Chat Screenshot 7">
+        <img src="images/project5-chat8.png" alt="Support Chat Screenshot 8">
+        <img src="images/project5-chat9.png" alt="Support Chat Screenshot 9">
+        <img src="images/project5-chat10.png" alt="Support Chat Screenshot 10">
+        <img src="images/project5-chat11.png" alt="Support Chat Screenshot 11">
+        <img src="images/project5-chat12.png" alt="Support Chat Screenshot 12">
+        <img src="images/project5-chat13.png" alt="Support Chat Screenshot 13">
+        <img src="images/project5-chat14.png" alt="Support Chat Screenshot 14">
+        <img src="images/project5-chat15.png" alt="Support Chat Screenshot 15">
+        <img src="images/project5-chat16.png" alt="Support Chat Screenshot 16">
+        <img src="images/project5-chat17.png" alt="Support Chat Screenshot 17">
+        <img src="images/project5-chat18.png" alt="Support Chat Screenshot 18">
+        <img src="images/project5-chat19.png" alt="Support Chat Screenshot 19">
+        <img src="images/project5-chat20.png" alt="Support Chat Screenshot 20">
+        <img src="images/project5-chat21.png" alt="Support Chat Screenshot 21">
+        <img src="images/project5-chat22.png" alt="Support Chat Screenshot 22">
+        <img src="images/project5-chat23.png" alt="Support Chat Screenshot 23">
+    </div>
+
+</div>
+
+
+<!-- Customer Outcome -->
+<div class="section">
+    <h2>Customer Outcome</h2>
+    <p>The user was able to resume work immediately and expressed appreciation for the fast and effective resolution.</p>
+</div>
+
+
+<!-- Why This Matters -->
+<div class="section">
+    <h2>Why This Matters</h2>
+    <ul class="strengths">
+        <p>This case highlights my ability to:</p>
+        <li>Prioritize speed without sacrificing quality</li>
+        <li>Balance immediate resolution with root-cause thinking</li>
+        <li>Apply efficient, targeted diagnostics</li>
+        <li>Communicate clearly under pressure</li>
+        <li>Own the problem beyond the quick fix</li>
+    </ul>
+</div>
+
+
+<!-- Key Skills Demonstrated -->
+<div class="section">
+    <h2>Key Skills Demonstrated</h2>
+    <ul class="strengths">
+        <li>SaaS Customer Support (Authentication & Access Issues)</li>
+        <li>Troubleshooting & Root Cause Analysis</li>
+        <li>Customer Communication & Empathy</li>
+        <li>Urgency Handling & Decision-Making</li>
+        <li>SSO (Google Login) Workarounds</li>
+    </ul>
+</div>
+
+<!-- Strategic Insight -->
+<div class="section">
+    <h2>Strategic Insight (What makes this stand out)</h2>
+    <p>Instead of choosing between speed and accuracy, I applied both:</p>
+    <ul>
+        <li>Immediate access first → Root cause prevention second</li>
+    </ul>
+    <p>This reduces</p>
+    <ul>
+        <li>Customer frustration</li>
+        <li>Repeat tickets</li>
+        <li>User churn</li>
+    </ul>
+</div>
+
+<!-- PS -->
+<div class="section">
+    <h2>PS: Scenario Environment</h2>
+    <p>This case study was conducted in a simulated support environment as part of my professional practice routine.</p> 
+    
+   <p>I regularly roleplay real-world customer support scenarios with an AI-based practice partner to sharpen my troubleshooting, communication, and customer management skills.</p> 
+   
+  <p>The goal is to replicate the types of issues support specialists handle daily while continuously improving response quality, clarity, and problem-solving under pressure.</p>
+</div>
+
+<!-- Bottom CTA -->
+<section class="bottom-cta">
+    <a href="projects.html" class="cta-btn">Back to Projects</a>
+    <a href="https://calendly.com/amaechipromise25/30min" class="cta-btn">Book a Call</a>
+</section>
+
+</div>
+</body>
+</html>

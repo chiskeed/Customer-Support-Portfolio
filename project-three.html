@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Storage Issue Case Study | Customer Support Portfolio</title>
+<style>
+/* --- General Reset --- */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+/* --- Page Background --- */
+body { background: #151515; color: #ffffff; line-height: 1.6; }
+
+/* --- Container --- */
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px 20px;
+    background: linear-gradient(90deg, #151515, #1a1a1a);
+}
+.hero h1 { color: #c51c34; font-size: 42px; margin-bottom: 15px; font-weight: 700; }
+.hero p { font-size: 20px; color: #cfcfcf; max-width: 800px; margin: 0 auto; }
+
+/* --- Section Styling --- */
+.section {
+    background: #1f1f1f;
+    padding: 30px 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    border-left: 5px solid #c51c34;
+    transition: transform 0.3s ease;
+}
+.section:hover { transform: translateY(-3px); }
+.section h2 {
+    color: #c51c34;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+.section p, .section li { color: #cfcfcf; margin-bottom: 12px; font-size: 16px; }
+
+/* --- Lists --- */
+ul { margin-left: 20px; }
+li { margin-bottom: 8px; }
+
+/* --- Live Chat Section --- */
+.chat-container {
+    background: #202020;
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 80%;
+}
+.customer { flex-direction: row; }
+.customer .msg-bubble { background: #2a2a2a; color: #ffffff; border-radius: 15px 15px 15px 0; padding: 12px 15px; }
+.agent { flex-direction: row-reverse; align-self: flex-end; }
+.agent .msg-bubble { background: #c51c34; color: #ffffff; border-radius: 15px 15px 0 15px; padding: 12px 15px; }
+.msg-avatar { width: 35px; height: 35px; border-radius: 50%; background: #c51c34; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #fff; flex-shrink: 0; font-size: 14px; }
+
+/* --- Strengths & Takeaways --- */
+.strengths { display: flex; flex-direction: column; gap: 15px; }
+.strengths li { list-style: disc inside; }
+
+/* --- Bottom CTA --- */
+.bottom-cta {
+    text-align: center;
+    margin: 60px 0 100px 0;
+}
+.bottom-cta h2 { color: #c51c34; font-size: 32px; margin-bottom: 20px; font-weight: 700; }
+
+.bottom-cta .cta-btn {
+    background: #c51c34;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s, background 0.3s;
+    margin: 0 10px;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    
+    
+}
+.bottom-cta .cta-btn:hover { transform: translateY(-3px); background: #ff3648; }
+
+/* --- Responsive --- */
+@media(max-width:900px){
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 18px; }
+    .section h2 { font-size: 22px; }
+    .bottom-cta h2 { font-size: 28px; }
+    .msg-bubble { font-size: 14px; padding: 10px 12px; }
+}
+
+/* --- Button Responsive 1 --- */
+@media(max-width:400px){
+    .bottom-cta .cta-btn {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+}
+
+/* --- Button Responsive 2 --- */
+@media(max-width: 600px) {
+    .bottom-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Space between stacked buttons */
+    }
+
+    .bottom-cta .cta-btn {
+        margin: 0; /* Remove horizontal margin for stacked layout */
+        width: 80%; /* Optional: make buttons wider on mobile */
+        max-width: 300px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>Diagnosing and Resolving a Mobile Storage Issue
+        </h1>
+        <p><b>Product:</b> Files by Google</p>
+<p><b>Role:</b> Customer Support Specialist
+</p>
+    </div>
+</section>
+
+<div class="container">
+
+<!-- Situation -->
+<div class="section">
+    <h2>Situation</h2>
+    <p>A mobile user contacted support after repeatedly receiving a “Storage almost full” notification on their phone.</p>
+
+<p>Despite deleting several photos, the warning persisted. When the customer opened Files by Google, the visible files did not appear to justify the amount of storage being used.</p>
+
+<p>The customer was confused and concerned that their phone might stop functioning properly if the issue continued.</p>
+</div>
+
+<!-- Task -->
+<div class="section">
+    <h2>Task</h2>
+    <p>My responsibility as the support specialist was to:
+</p>
+    <ul>
+        <li>Identify the root cause of the storage issue</li>
+
+<li>Guide the user through a structured troubleshooting process</li>
+
+<li>Provide clear instructions that a non-technical user could easily follow</li>
+
+<li>Help the user recover storage space without risking important files</li>
+
+    </ul>
+</div>
+
+<!-- Action -->
+<div class="section">
+    <h2>Action</h2>
+<p>To resolve the issue, I followed a structured support process.</p>
+    <ul>
+        <li><strong>1. Established the Customer’s Goal:</strong> 
+        
+        <p>I first clarified the customer’s primary objective, confirming that their goal was to free up storage space on their phone.</p>
+<p>This ensured the troubleshooting process remained focused on the user’s real problem.</p></li>
+        
+        <li><strong>2. Collected Diagnostic Information:</strong> 
+        <p>I asked the user to confirm:</p>
+
+<ul>
+    <li>The type of storage being used (internal storage)</li>
+    <li>The phone’s total storage capacity</li>
+    <li>The amount of storage currently used</li>
+</ul>
+
+<p>This helped establish that the phone had 32GB total storage with 29GB already consumed.</p>
+</li>
+        <li><strong>3. Investigated Storage Distribution:</strong> 
+        <p>Next, I guided the user to review the storage categories within Files by Google to determine which file types were consuming the most space.</p>
+<p>The breakdown revealed:</p>
+<ul>
+    <li>Apps: 11GB</li>
+    <li>Videos: 9.8GB</li>
+    <li>Images: 3.1GB</li>
+    <li>Downloads: 1.2GB</li>
+</ul>
+
+<p>This immediately highlighted videos as a major contributor to the storage issue.</p>
+        </li>
+        
+        <li><strong>4. Traced the Root Cause:</strong> 
+        
+        <p>Since the customer mentioned frequently receiving videos through WhatsApp, I directed them to the location where these files are stored within internal storage.</p>
+
+<p>I provided clear step-by-step navigation instructions to locate WhatsApp media files and identify unnecessary content.</p></li>
+
+<li><strong>5. Guided the Customer Through the Solution</strong>
+<p>The user located hundreds of saved videos within the WhatsApp media folder.</p>
+
+<p>I guided them to delete unnecessary files, allowing them to safely remove unwanted media without affecting important data.</p>
+</li>
+    </ul>
+</div>
+
+<!-- Result -->
+<div class="section">
+    <h2>Result</h2>
+    <p>The customer successfully deleted unnecessary files and freed approximately 5GB of storage space.</p>
+
+<p>As a result:</p>
+<ul>
+    <li>The “Storage almost full” warning stopped appearing</li>
+    <li>The phone regained sufficient available storage</li>
+    <li>The user understood where hidden media files were being stored</li>
+    <li>The customer also gained awareness of how messaging apps can accumulate large media files over time.</li>
+</ul>
+
+</div>
+
+<!-- Live Support Conversation -->
+<div class="section">
+    <h2>Live Support Conversation</h2>
+    <div class="chat-container">
+        <!-- Customer Message -->
+        <div class="message customer">
+            <div class="msg-avatar">C</div>
+            <div class="msg-bubble">
+   <p>Hi… I’m really confused right now.</p>
+
+<p>My phone keeps saying “Storage almost full”, but when I open Files by Google, I honestly can’t see what’s taking up so much space.</p>
+
+<p>I already deleted some photos yesterday, but the warning is still there.</p>
+
+<p>I’m worried my phone will stop working properly if it fills up completely.</p>
+
+<p>Can you help me figure out what’s actually using all my storage?</p>
+</div>
+        </div>
+        <!-- Agent Message -->
+        <div class="message agent">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble">
+                <p>Hi Anna.</p>
+
+<p>Thank you for reaching out. I understand how upsetting this situation might feel, and I’m here to help you figure out what’s going on with your storage.</p>
+
+<p>Just to confirm, is your current goal to create more space on your phone?</p>
+
+</div>
+        </div>
+        <!-- More random messages -->
+        <div class="message customer">
+            <div class="msg-avatar">C</div>
+            <div class="msg-bubble">
+                
+               <p>Hi… thanks for getting back to me.</p>
+
+<p>Yes, that’s exactly it. I just want to free up space on my phone because the storage warning keeps popping up and it’s starting to worry me.</p>
+
+<p>The strange thing is that when I open Files by Google, it doesn’t look like I have that many files.</p>
+
+<p>I already deleted a bunch of photos yesterday, so I’m not sure what else could be taking up space.</p>
+
+<p>I mostly use my phone for:</p>
+<ul>
+    <li>taking pictures</li>
+
+<li>WhatsApp</li>
+
+<li>downloading a few PDFs sometimes</li>
+</ul>
+
+<p>But nothing that should fill up my storage this much… at least I think so.</p>
+
+<p>What should I check?</p>
+
+</div>
+        </div>
+        
+        <div class="message agent">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble">
+                <p>Thank you for your clear response. To help me trace the root of the problem more effectively, could you kindly indicate which type of storage you currently use:</p>
+
+<p>1. Internal storage</p>
+<p>2. SD card</p>
+<p>3. Other (please specify)</p>
+<p>4. All of the above</p>
+
+<p>Your answer will go a long way in helping me identify the best solution for you.</p>
+
+                </div>
+        </div>
+        <!-- Customer Message -->
+        <div class="message customer">
+            <div class="msg-avatar">C</div>
+            <div class="msg-bubble">
+                <p>Hmm… I’m not completely sure, to be honest.</p>
+
+<p>I think it’s just the phone’s normal storage, so I guess that would be internal storage?</p>
+
+<p>I don’t remember ever putting an SD card in this phone, so it’s probably not that.</p>
+
+<p>The message that pops up just says something like “Storage almost full”, but it doesn’t really explain what exactly is full.</p>
+
+<p>And when I check inside Files by Google, I mostly see my photos and a few downloads, which don’t look like enough to fill the phone.</p>
+
+<p>Is there a way to see what exactly is using the storage?</p>
+
+</div>
+        </div>
+       
+       <!-- Agent Message -->
+        <div class="message agent">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble">
+<p>Thank you for your response. Could you please let me know the total storage capacity of your internal storage? This information will help me better understand the situation and trace the root of the problem</p>
+            </div>
+        </div>
+        
+        <!-- Customer Message -->
+        <div class="message customer">
+            <div class="msg-avatar">C</div>
+            <div class="msg-bubble">
+<p>Hmm… let me check.</p>
+
+<p>Okay, I opened Files by Google and went to the storage section.</p>
+
+<p>It says 32 GB total, and it shows that about 29 GB is already used.</p>
+
+<p>That’s why I’m confused… because I don’t feel like I have that many files on my phone.</p>
+
+<p>I only have:</p>
+<ul>
+    <li>some photos</li>
+<li>a few downloaded PDFs</li>
+<li>WhatsApp</li>
+</ul>
+<p>So I’m not sure what could be taking up the rest of the space.</p>
+
+<p>Is there somewhere inside the app where I can see what exactly is using the storage?</p>
+
+            </div>
+        </div>
+        <!-- Agent Message -->
+        <div class="message agent">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble">
+   <p>Thank you for patiently providing all this information. Let’s now take a look at your home screen within the app.</p>
+
+<p>When you open the app, the first interface you see is similar to a homepage.</p> 
+
+<p>In the middle of the page, you’ll notice several sections grouped by file format: Downloads, Videos, Documents, Images, Audios, and Apps. </p>
+
+<p>Below each section, the total storage space used by that file type is displayed. For example, under the Videos section, you might see something like 12 GB, which represents the total space taken by all videos in your internal storage.</p>
+
+<p>Please review each of the six sections and share the storage space shown for each one. This will help me filter out the file type taking the most space and trace the root of the problem more effectively.</p>
+
+             
+</div>
+        </div>
+        
+        <!-- Customer Message -->
+        <div class="message customer">
+            <div class="msg-avatar">C</div>
+            <div class="msg-bubble">
+<p>Okay, give me a second… I’m checking it now in Files by Google.</p>
+
+<p>Alright, here’s what I see:</p>
+<ul>
+<li>Downloads: 1.2 GB</li>
+<li>Videos: 9.8 GB</li>
+<li>Documents: 600 MB</li>
+<li>Images: 3.1 GB</li>
+<li>Audio: 200 MB</li>
+<li>Apps: 11 GB</li>
+</ul>
+<p>Wow… I didn’t even realize videos were taking that much space.</p>
+
+<p>And the apps section looks even bigger than I expected.</p>
+
+<p>I mostly just watch videos people send me on WhatsApp, so maybe that’s where those came from?</p>
+
+<p>What do you think I should check first?</p>
+
+            </div>
+        </div>
+        
+        <!-- Agent Message -->
+        <div class="message agent">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble">
+<p>Thank you for sharing all this information, it’s been very helpful. Based on what we’ve reviewed, I can confirm that the files visible in your internal storage aren’t the main cause of the space issue.</p>
+
+<p>There are several possible ways to free up space on your phone, such as:</p>
+
+<p>1. Freezing apps you don’t regularly use</p>
+<p>2. Deleting app cookies</p>
+<p>3. Deleting files in the Android folder</p>
+
+<p>I recommend we go with the third option, as it’s proven to be more effective and faster. Since you also mentioned WhatsApp, it would be a great idea to work in that direction as well.</p>
+
+<p>Before we proceed, I’d like to understand how important the files sent to you on WhatsApp are. Are you comfortable permanently deleting the unnecessary ones to free up space?</p>
+            </div>
+        </div>
+  
+  <!-- Customer Message -->
+        <div class="message customer">
+            <div class="msg-avatar">C</div>
+            <div class="msg-bubble">
+<p>Hmm… I think I’d be okay deleting some of them.</p>
+
+<p>Most of the videos people send me on WhatsApp are just random clips in group chats, so I probably don’t need to keep most of them.</p>
+
+<p>But I’m a bit nervous about one thing.</p>
+
+<p>You mentioned deleting files in the Android folder, and I’ve heard before that messing with system folders can sometimes break apps or cause problems on the phone.</p>
+
+<p>I’m not very technical, so I’m worried I might accidentally delete something important.</p>
+
+<p>Is it safe to delete things from that folder, or is there a way to only remove the WhatsApp videos without touching anything important?</p>
+
+<p>I just don’t want to mess up my phone while trying to fix the storage problem.</p>
+
+            </div>
+        </div>
+   
+   <!-- Agent Message -->
+        <div class="message agent">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble">
+                <p>I understand your concern, and I want to reassure you that we’ll work through this together step by step. It’s best to focus on the Android folder, since it houses the files that need to be deleted in one place. Just follow the guide below, and everything will be fine:</p>
+
+<p>Steps to Navigate to WhatsApp Media Files:</p>
+
+<p>1. Open the Files by Google app.</p>
+<p>2. From the homepage, scroll to the bottom and select Internal storage.</p>
+<p>3. You’ll see several folders (usually arranged alphabetically). Locate and click on the Android folder.</p>
+<p>4. Inside the Android folder, you’ll find four subfolders: Data, Obb, Obj, Media. Select Media.</p>
+<p>5. Within the Media folder, navigate to com.whatsapp.</p>
+<p>6. Inside com.whatsapp, open the WhatsApp folder.</p>
+<p>7. Then, open the Media folder.</p>
+<p>8. Here, you’ll see multiple folders such as WhatsApp Videos, WhatsApp Stickers, WhatsApp Profile Pictures, WhatsApp Images, and more. These represent all the WhatsApp media files taking up space in your internal storage.</p>
+<p>9. Select the folder that contains the files you want to delete (e.g., WhatsApp Videos) and remove the unwanted files.</p>
+
+<p>Note: The folder names are standard across most devices, though slight variations may occur depending on the manufacturer or region. Don’t worry if you see minor differences, the structure is generally the same.</p>
+
+<p>Please test this out and let me know how it goes. As always, I’m here to provide further support whenever you need it.</p>
+</div>
+        </div>
+     <!-- Customer Message -->
+        <div class="message customer">
+            <div class="msg-avatar">C</div>
+            <div class="msg-bubble">
+<p>Okay… I followed your steps inside Files by Google.</p>
+
+<p>I opened:</p>
+
+<p>Internal storage → Android → Media → com.whatsapp → WhatsApp → Media</p>
+
+<p>And wow… there are a lot of folders in here like you said.</p>
+
+<p>I opened WhatsApp Videos and there are hundreds of videos in there. I had no idea they were all saved on my phone like this.</p>
+
+<p>I deleted a bunch of them just now, mostly the random ones from group chats.</p>
+
+<p>After deleting them, I checked my storage again and it looks like I freed about 5 GB, which is great! The storage warning hasn’t popped up again so far.</p>
+
+<p>So I think that actually solved the problem. Thank you.</p>
+
+            </div>
+        </div>
+<!-- Agent Message -->
+        <div class="message agent">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble">
+<p>I’m glad to hear the issue has been resolved. To help prevent this from happening again, you can periodically open the Clean tab in the app to remove large or duplicate files.  </p>
+
+<p>Since many of the files came from WhatsApp, another helpful step is to disable automatic media downloads in WhatsApp settings. This will stop your storage from filling up unnecessarily.  </p>
+
+<p>Please don’t hesitate to reach out with any other issues you encounter while using our products. We’re always happy to support you.</p> 
+
+            </div>
+        </div>
+         <!--  -->
+    </div>
+</div>
+
+<!-- Key Skills Demonstrated -->
+<div class="section">
+    <h2>Key Skills Demonstrated</h2>
+    <ul>
+        <p><strong>Customer Communication</strong></p>
+        <li>Used empathy and reassurance to reduce user frustration</li>
+        <li>Maintained clear and professional communication throughout the interaction</li>
+    </ul>
+ 
+ <ul>
+     <p><strong>Technical Troubleshooting</strong></p>
+     <li>Diagnosed the issue using structured questioning</li>
+     <li>Identified the largest storage contributors</li>
+ </ul>   
+
+<ul>
+    <p><strong>Guided Problem Solving</strong></p>
+    <li>Provided clear step-by-step instructions</li>
+    <li>Helped a non-technical user navigate file directories safely</li>
+</ul>
+
+<ul>
+    <p><strong>Root Cause Analysis</strong></p>
+    <li>Identified hidden WhatsApp media files as the primary source of storage consumption</li>
+</ul>
+</div>
+
+<!-- Outcome -->
+<div class="section">
+    <h2>Outcome</h2>
+    <p>This support interaction restored the user’s device functionality while improving their understanding of how mobile storage works.</p>
+
+<p>By focusing on diagnosis, clear communication, and structured guidance, I was able to resolve the issue efficiently and deliver a positive customer support experience.
+</p>
+</div>
+
+
+<!-- PS: Scenario Environment -->
+<div class="section">
+    <h2>PS: Scenario Environment</h2>
+    <p>This scenario was performed in a practice simulation environment rather than with a real customer. </p>
+    
+   <p>I regularly run realistic support roleplays with an AI practice partner to recreate the types of challenges support specialists face daily. </p>
+    
+   <p>These simulations help me refine my diagnostic thinking, improve communication under pressure, and test different approaches to resolving customer issues effectively.</p>
+</div>
+
+<!-- Bottom CTA -->
+<section class="bottom-cta">
+    <a href="projects.html" class="cta-btn">Back to Projects</a>
+    <a href="https://calendly.com/amaechipromise25/30min" class="cta-btn">Book a Call</a>
+</section>
+
+</div>
+</body>
+</html>

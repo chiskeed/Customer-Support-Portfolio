@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Docs Permission Issue Case Study | Customer Support Portfolio</title>
+<style>
+/* --- General Reset --- */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+/* --- Page Background --- */
+body { background: #151515; color: #ffffff; line-height: 1.6; }
+
+/* --- Container --- */
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px 20px;
+    background: linear-gradient(90deg, #151515, #1a1a1a);
+}
+.hero h1 { color: #c51c34; font-size: 42px; margin-bottom: 15px; font-weight: 700; }
+.hero p { font-size: 20px; color: #cfcfcf; max-width: 800px; margin: 0 auto; }
+
+/* --- Section Styling --- */
+.section {
+    background: #1f1f1f;
+    padding: 30px 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    border-left: 5px solid #c51c34;
+    transition: transform 0.3s ease;
+}
+.section:hover { transform: translateY(-3px); }
+.section h2 {
+    color: #c51c34;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+.section p, .section li { color: #cfcfcf; margin-bottom: 12px; font-size: 16px; }
+
+/* --- Lists --- */
+ul { margin-left: 20px; }
+li { margin-bottom: 8px; }
+
+/* --- Live Chat Section --- */
+.chat-container {
+    background: #202020;
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 80%;
+}
+.customer { flex-direction: row; }
+.customer .msg-bubble { background: #2a2a2a; color: #ffffff; border-radius: 15px 15px 15px 0; padding: 12px 15px; }
+.agent { flex-direction: row-reverse; align-self: flex-end; }
+.agent .msg-bubble { background: #c51c34; color: #ffffff; border-radius: 15px 15px 0 15px; padding: 12px 15px; }
+.msg-avatar { width: 35px; height: 35px; border-radius: 50%; background: #c51c34; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #fff; flex-shrink: 0; font-size: 14px; }
+
+
+
+/* --- Chat Screenshot Gallery --- */
+.chat-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.chat-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.chat-gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* --- Responsive Gallery --- */
+@media(max-width: 900px) {
+    .chat-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 500px) {
+    .chat-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- Strengths & Takeaways --- */
+.strengths { display: flex; flex-direction: column; gap: 15px; }
+.strengths li { list-style: disc inside; }
+
+/* --- Bottom CTA --- */
+.bottom-cta {
+    text-align: center;
+    margin: 60px 0 100px 0;
+}
+.bottom-cta h2 { color: #c51c34; font-size: 32px; margin-bottom: 20px; font-weight: 700; }
+
+.bottom-cta .cta-btn {
+    background: #c51c34;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s, background 0.3s;
+    margin: 0 10px;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    
+    
+}
+.bottom-cta .cta-btn:hover { transform: translateY(-3px); background: #ff3648; }
+
+/* --- Responsive --- */
+@media(max-width:900px){
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 18px; }
+    .section h2 { font-size: 22px; }
+    .bottom-cta h2 { font-size: 28px; }
+    .msg-bubble { font-size: 14px; padding: 10px 12px; }
+}
+
+/* --- Button Responsive 1 --- */
+@media(max-width:400px){
+    .bottom-cta .cta-btn {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+}
+
+/* --- Button Responsive 2 --- */
+@media(max-width: 600px) {
+    .bottom-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Space between stacked buttons */
+    }
+
+    .bottom-cta .cta-btn {
+        margin: 0; /* Remove horizontal margin for stacked layout */
+        width: 80%; /* Optional: make buttons wider on mobile */
+        max-width: 300px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>Resolving a Google Docs Permission Issue</h1>
+        <p>Case study under deadline pressure demonstrating clear communication, problem-solving, and technical support skills.</p>
+    </div>
+</section>
+
+<div class="container">
+
+<!-- Situation -->
+<div class="section">
+    <h2>Situation</h2>
+    <p>A customer contacted support in a panic: their team could no longer edit a Google Doc, and the deadline was less than an hour away. The document had been shared via link, and the customer was not the owner, only some teammates initially had editor access.</p>
+    <p>The challenge required:</p>
+    <ul>
+        <li>Rapid identification of the root cause</li>
+        <li>Clear, step-by-step guidance</li>
+        <li>Maintaining professionalism while under time pressure</li>
+    </ul>
+</div>
+
+<!-- Task -->
+<div class="section">
+    <h2>Task</h2>
+    <p>My objective was to:</p>
+    <ul>
+        <li>Diagnose why the document had switched to “View only” for the team.</li>
+        <li>Restore edit access for all teammates before the deadline.</li>
+        <li>Communicate clearly and calmly to reduce customer stress.</li>
+        <li>Set expectations regarding what could be done by the customer and what required escalation to the owner.</li>
+    </ul>
+</div>
+
+<!-- Action -->
+<div class="section">
+    <h2>Action</h2>
+    <p>To solve the issue, I:</p>
+    <ul>
+        <li><strong>Asked Minimal, Strategic Questions:</strong> Confirmed ownership and editor status of the customer. Identified which teammates were blocked and whether they were listed in Manage access.</li>
+        <li><strong>Analyzed the Root Cause:</strong> Determined that teammates were set as Viewers or not listed. Recognized that ownership restrictions by the manager prevented some edits.</li>
+        <li><strong>Provided Clear, Step-by-Step Guidance:</strong> Used exact UI labels: Share → Manage access → Add people or groups → Assign Editor. Explained which actions the customer could perform themselves and which required the manager.</li>
+        <li><strong>Maintained Professional Tone and Managed Expectations:</strong> Acknowledged customer stress and reassured them. Kept communication concise, structured, and empathetic.</li>
+    </ul>
+</div>
+
+<!-- Result -->
+<div class="section">
+    <h2>Result</h2>
+    <p>The customer successfully restored editor access for all teammates. Team collaboration resumed, and the project met its deadline. The customer expressed appreciation for the calm, clear guidance and structured approach.</p>
+</div>
+
+
+<!-- Live Support Conversation (Real Screenshots) -->
+<div class="section">
+    <h2>Live Support Conversation</h2>
+
+    <p>
+        Below is a real support interaction handled using a live chat tool (HubSpot). 
+        This showcases my ability to manage customer urgency, communicate clearly, 
+        and resolve issues efficiently in a real environment.
+    </p>
+
+    <div class="chat-gallery">
+        <img src="images/project1-chat1.png" alt="Support Chat Screenshot 1">
+        <img src="images/project1-chat2.png" alt="Support Chat Screenshot 2">
+        <img src="images/project1-chat3.png" alt="Support Chat Screenshot 3">
+    </div>
+
+</div>
+
+<!-- Strengths Demonstrated -->
+<div class="section">
+    <h2>Strengths Demonstrated</h2>
+    <ul class="strengths">
+        <li>Strategic questioning and minimal diagnostic steps</li>
+        <li>Clear, exact use of UI labels</li>
+        <li>Professional tone and empathy under pressure</li>
+        <li>Correctly identified when escalation was required</li>
+    </ul>
+</div>
+
+<!-- Key Takeaway -->
+<div class="section">
+    <h2>Key Takeaway</h2>
+    <p>Senior-level support is about balancing technical expertise, communication clarity, and customer psychology, especially under urgent, high-pressure situations.</p>
+</div>
+
+
+
+<!-- PS -->
+<div class="section">
+    <h2>PS: Scenario Environment</h2>
+    <p>This case study was conducted in a simulated support environment as part of my professional practice routine.</p> 
+    
+   <p>I regularly roleplay real-world customer support scenarios with an AI-based practice partner to sharpen my troubleshooting, communication, and customer management skills.</p> 
+   
+  <p>The goal is to replicate the types of issues support specialists handle daily while continuously improving response quality, clarity, and problem-solving under pressure.</p>
+</div>
+
+<!-- Bottom CTA -->
+<section class="bottom-cta">
+    <a href="projects.html" class="cta-btn">Back to Projects</a>
+    <a href="https://calendly.com/amaechipromise25/30min" class="cta-btn">Book a Call</a>
+</section>
+
+</div>
+</body>
+</html>

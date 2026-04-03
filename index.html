@@ -1,0 +1,621 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Support Portfolio</title><style>
+
+/* ===== GLOBAL STYLES ===== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+html {scroll-behavior:smooth}
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease
+}
+.reveal.active{
+opacity:1;
+transform:translateY(0)
+}
+
+body{
+background:#151515;
+color:#ffffff;
+line-height:1.6;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+section{
+padding:80px 0;
+}
+
+h1,h2,h3{
+font-weight:700;
+}
+
+p{
+color:#cfcfcf;
+}
+
+/* ===== NAVBAR ===== */
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+@media(max-width:900px){
+
+.menu-toggle{
+display:block;
+}
+
+.nav-links{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#151515;
+flex-direction:column;
+text-align:center;
+display:none;
+border-top:1px solid #2a2a2a;
+}
+
+.nav-links a{
+display:block;
+padding:18px;
+margin:0;
+border-bottom:1px solid #2a2a2a;
+}
+
+.nav-links.show{
+display:block;
+}
+
+}
+
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+background:#151515;
+border-bottom:1px solid #2a2a2a;
+z-index:1000;
+}
+
+.nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+}
+
+.logo{
+font-size:18px;
+font-weight:bold;
+}
+
+.nav-links a{
+color:#ffffff;
+text-decoration:none;
+margin-left:25px;
+font-size:14px;
+}
+
+.nav-links a:hover{
+color:#c51c34;
+}
+
+.cta-button{
+background:#c51c34;
+padding:10px 18px;
+border-radius:6px;
+}
+
+/* ===== HERO SECTION ===== */
+
+.hero{
+padding-top:140px;
+min-height:90vh;
+display:flex;
+align-items:center;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero p{
+margin-bottom:30px;
+}
+
+.button-group a{
+display:inline-block;
+margin-right:15px;
+text-decoration:none;
+padding:14px 26px;
+border-radius:6px;
+font-size:14px;
+}
+
+.primary-btn{
+background:#c51c34;
+color:white;
+}
+
+.secondary-btn{
+border:1px solid #c51c34;
+color:#c51c34;
+}
+
+.secondary-btn:hover{
+background:#c51c34;
+color:white;
+}
+
+/* PHOTO PLACEHOLDER */
+
+.photo-box{
+background:#202020;
+border:2px dashed #2a2a2a;
+border-radius:10px;
+height:360px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#777;
+font-size:14px;
+text-align:center;
+padding:20px;
+}
+
+/* ===== ABOUT ===== */
+.about-me {
+    background: #1c1c1c;
+    padding: 80px 0;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.about-me h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #c51c34; /* your brand accent */
+}
+
+.about-me p {
+    max-width: 800px;
+    margin: 0 auto 25px auto;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #cfcfcf;
+}
+
+@media (max-width: 900px) {
+    .about-me h2 {
+        font-size: 28px;
+    }
+
+    .about-me p {
+        font-size: 16px;
+    }
+}
+/* ===== PHILOSOPHY ===== */
+
+.philosophy{
+background:#1c1c1c;
+text-align:center;
+}
+
+.philosophy p{
+max-width:700px;
+margin:auto;
+font-size:18px;
+}
+
+.highlight{
+color:#c51c34;
+font-weight:bold;
+}
+
+/* ===== PROOF CARDS ===== */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-top:40px;
+}
+
+.card{
+background:#202020;
+padding:30px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border:1px solid #c51c34;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+/* ===== SERVICES ===== */
+
+.services{
+background:#1c1c1c;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-top:40px;
+}
+
+.service-card{
+background:#202020;
+padding:28px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.service-card:hover{
+transform:translateY(-6px);
+border:1px solid #c51c34;
+}
+/* ===== TOOLS ===== */
+.tools {
+    background: #202020;
+    padding: 80px 0;
+    color: #ffffff;
+}
+
+.tools h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: #c51c34; /* brand accent */
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 25px;
+    justify-items: center;
+    align-items: center;
+}
+
+.tool-card {
+    background: #151515;
+    padding: 25px 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #cfcfcf;
+    transition: transform 0.3s, background 0.3s;
+    cursor: default;
+}
+
+.tool-card:hover {
+    transform: translateY(-6px);
+    background: #c51c34;
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .tools h2 {
+        font-size: 28px;
+    }
+    
+    .tool-card {
+        font-size: 14px;
+        padding: 20px 10px;
+    }
+}
+/* ===== CASE STUDY ===== */
+
+.case-box{
+background:#202020;
+padding:40px;
+border-radius:10px;
+margin-top:30px;
+}
+
+.case-box h3{
+margin-bottom:20px;
+}
+
+.case-box p{
+margin-bottom:15px;
+}
+
+.project-link{
+color:#c51c34;
+text-decoration:none;
+font-weight:bold;
+}
+
+.project-link:hover{
+text-decoration:underline;
+}
+/* ===== CTA ===== */
+
+.cta{
+background:#1c1c1c;
+text-align:center;
+}
+
+.cta h2{
+margin-bottom:20px;
+}
+
+.cta-button-large{
+display:inline-block;
+margin-top:25px;
+background:#c51c34;
+padding:16px 32px;
+text-decoration:none;
+color:white;
+border-radius:6px;
+font-size:16px;
+}
+
+.view-all-container{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.view-all-btn{
+    background: #c51c34;       /* Your brand red */
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.view-all-btn:hover{
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+/* ===== FOOTER ===== */
+
+footer{
+text-align:center;
+padding:40px 0;
+border-top:1px solid #2a2a2a;
+color:#888;
+font-size:14px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:900px){
+
+.hero-grid{
+grid-template-columns:1fr;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.service-grid{
+grid-template-columns:1fr;
+}
+
+.nav-links{
+display:none;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+}
+
+</style></head><body><!-- NAVBAR --><div class="navbar">
+<div class="container nav-inner">
+    <div class="logo">Promise Amaechi</div>
+    
+   <div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<div class="nav-links" id="navLinks">
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+<a href="https://calendly.com/amaechipromise25/30min" class="cta-button">Book a Call</a>
+</div></div>
+</div><!-- HERO SECTION --><section class="hero">
+<div class="container hero-grid"><div>
+<h1>Build Stronger Customer Relationships and Higher Lifetime Value</h1><p>
+I help SaaS startups and e‑commerce brands increase customer satisfaction, retention, and long‑term loyalty by delivering exceptional customer experiences as a customer support virtual assistant (VA).
+</p><div class="button-group">
+<a href="projects.html" class="primary-btn">View My Work</a>
+<a href="https://calendly.com/amaechipromise25/30min" class="secondary-btn">Book a Call</a>
+</div></div><!-- PHOTO SPACE --><div class="photo-box reveal">
+
+<br><br>
+
+<br> <img src="Cyber-Slaga.png" alt="Your Photo" style="width:100%;border-radius:10px;">
+
+</div>
+</div>
+</section>
+<!-- ABOUT ME -->
+<section class="about-me" id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>
+      I am a Customer Support Virtual Assistant (VA) with extensive hands-on experience across various customer-facing and technical roles. I'm focused on building longer lifetime values, reducing churn, and supporting revenue growth by delivering stronger customer relationships and exceptional experiences.
+    </p>
+    <p>
+      My greatest strengths are problem solving, troubleshooting, and empathy. I have a talent for quickly understanding complex situations, identifying root causes, and implementing practical, solution-driven improvements while remaining calm in high-pressure situations.
+    </p>
+    <p>
+      I am passionate about helping organizations create long-term value and sustainable competitive advantage. Most importantly, I value my integrity and loyalty to my team and organization.
+    </p>
+    <p>
+      I acquired my customer support skills through years of experience in various customer-facing roles and structured professional training programs issued by recognized global platforms such as Google, HP LIFE, HubSpot and the Digital Witch IT Support Community.
+    </p>
+  </div>
+</section>
+<!-- PHILOSOPHY -->
+<section class="philosophy reveal">
+<div class="container"><p>
+Many startups treat customer support as a department that simply answers tickets.<br><br>
+
+The smartest companies treat it as a <span class="highlight">growth engine</span> that protects revenue and builds loyalty.
+
+<br><br>
+
+Every interaction can strengthen trust and prevent churn, or quietly lose a loyal user.
+
+</p></div>
+</section><!-- PROOF --><section class="reveal">
+<div class="container"><h2>What I Focus On Improving</h2><div class="cards"><div class="card">
+<h3>Faster Response Times</h3>
+<p>Helping teams resolve customer issues quickly and efficiently.</p>
+</div><div class="card">
+<h3>Customer Satisfaction</h3>
+<p>Delivering support experiences customers genuinely appreciate.</p>
+</div><div class="card">
+<h3>Customer Retention</h3>
+<p>Turning frustrating problems into trust‑building interactions.</p>
+</div></div></div>
+</section><!-- SERVICES --><section class="services reveal" id="services">
+<div class="container"><h2>Services</h2><div class="service-grid"><div class="service-card">
+<h3>Customer Support Management</h3>
+<p>Email and chat support that resolves issues clearly and efficiently.</p>
+</div><div class="service-card">
+<h3>Customer Experience Improvement</h3>
+<p>Identifying recurring problems and improving workflows.</p>
+</div><div class="service-card">
+<h3>Customer Retention Support</h3>
+<p>Handling difficult conversations while maintaining customer trust.</p>
+</div><div class="service-card">
+<h3>Support Documentation</h3>
+<p>Creating FAQs and knowledge bases that reduce support tickets.</p>
+</div><div class="service-card">
+<h3>Community Management</h3>
+<p>Moderating discussions and helping user communities thrive.</p>
+</div><div class="service-card">
+<h3>Bug Reporting</h3>
+<p>Reproducing bugs and sending clear reports to developers.</p>
+</div></div></div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" id="tools" style="margin-bottom: 40px;">
+  <div class="container">
+    <h2>Tools I'm Familiar With</h2>
+    <div class="tools-grid">
+      <div class="tool-card">HubSpot</div>
+      <div class="tool-card">Zendesk</div>
+      <div class="tool-card">Intercom</div>
+      <div class="tool-card">Freshdesk</div>
+      <div class="tool-card">Slack</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="tools" id="tools">
+  <div class="container">
+    <h2>My Skills</h2>
+    <div class="tools-grid">
+      <div class="tool-card">Stakeholder Management</div>
+      <div class="tool-card">Change Management</div>
+      <div class="tool-card">Effective Communication</div>
+      <div class="tool-card">Empathetic Collaboration</div>
+      <div class="tool-card">Problem Solving</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CASE STUDY -->
+<section id="case">
+<div class="container">
+    <h2>Featured Case Study</h2>
+    <div class="case-box">
+    <h3>Resolving a Google Docs Permission Issue Under Deadline Pressure</h3>
+<p>
+A customer contacted support in a panic because their team suddenly lost editing access to a shared document less than an hour before a deadline.
+</p>
+<p>
+By asking targeted questions and guiding the user through the correct sharing settings step‑by‑step, editor access was restored for the entire team.
+</p>
+<p>
+The team resumed collaboration immediately and completed their project before the deadline while the customer expressed appreciation for the calm and structured support.
+</p>
+<a href="project-one.html" class="project-link">View This Project →</a>
+</div>
+<div class="view-all-container">
+    <a href="projects.html" class="view-all-btn">View All Projects →</a>
+</div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta reveal" id="contact">
+<div class="container"><h2>Great customer support builds trust and long‑term loyalty.</h2><p>If you're looking for someone who can represent your brand professionally while delivering excellent support experiences, let's work together.</p><a href="https://calendly.com/amaechipromise25/30min" class="cta-button-large">Book a Call</a>
+
+</div>
+</section><!-- FOOTER --><footer class="reveal"><p>Customer Support Portfolio</p>
+<p>© 2026 Promise Amaechi</p></footer></body>
+
+<script>
+    function toggleMenu(){
+const menu = document.getElementById("navLinks");
+menu.classList.toggle("show");
+}
+
+const reveals = document.querySelectorAll('.reveal')
+
+function revealOnScroll(){
+const windowHeight = window.innerHeight
+
+reveals.forEach(el=>{
+const elementTop = el.getBoundingClientRect().top
+
+if(elementTop < windowHeight - 100){
+el.classList.add('active')
+}
+})
+}
+
+window.addEventListener('scroll',revealOnScroll)
+</script>
+</html>

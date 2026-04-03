@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resolving Stuck Messages in a Slack Channel Case Study | Customer Support Portfolio</title>
+<style>
+/* --- General Reset --- */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+/* --- Page Background --- */
+body { background: #151515; color: #ffffff; line-height: 1.6; }
+
+/* --- Container --- */
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px 20px;
+    background: linear-gradient(90deg, #151515, #1a1a1a);
+}
+.hero h1 { color: #c51c34; font-size: 42px; margin-bottom: 15px; font-weight: 700; }
+.hero p { font-size: 20px; color: #cfcfcf; max-width: 800px; margin: 0 auto; }
+
+/* --- Section Styling --- */
+.section {
+    background: #1f1f1f;
+    padding: 30px 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    border-left: 5px solid #c51c34;
+    transition: transform 0.3s ease;
+}
+.section:hover { transform: translateY(-3px); }
+.section h2 {
+    color: #c51c34;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+.section p, .section li { color: #cfcfcf; margin-bottom: 12px; font-size: 16px; }
+
+/* --- Lists --- */
+ul { margin-left: 20px; }
+li { margin-bottom: 8px; }
+
+/* --- Live Chat Section --- */
+.chat-container {
+    background: #202020;
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 80%;
+}
+.customer { flex-direction: row; }
+.customer .msg-bubble { background: #2a2a2a; color: #ffffff; border-radius: 15px 15px 15px 0; padding: 12px 15px; }
+.agent { flex-direction: row-reverse; align-self: flex-end; }
+.agent .msg-bubble { background: #c51c34; color: #ffffff; border-radius: 15px 15px 0 15px; padding: 12px 15px; }
+.msg-avatar { width: 35px; height: 35px; border-radius: 50%; background: #c51c34; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #fff; flex-shrink: 0; font-size: 14px; }
+
+
+
+/* --- Chat Screenshot Gallery --- */
+.chat-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.chat-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.chat-gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* --- Responsive Gallery --- */
+@media(max-width: 900px) {
+    .chat-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 500px) {
+    .chat-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- Strengths & Takeaways --- */
+.strengths { display: flex; flex-direction: column; gap: 15px; }
+.strengths li { list-style: disc inside; }
+
+/* --- Bottom CTA --- */
+.bottom-cta {
+    text-align: center;
+    margin: 60px 0 100px 0;
+}
+.bottom-cta h2 { color: #c51c34; font-size: 32px; margin-bottom: 20px; font-weight: 700; }
+
+.bottom-cta .cta-btn {
+    background: #c51c34;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s, background 0.3s;
+    margin: 0 10px;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    
+    
+}
+.bottom-cta .cta-btn:hover { transform: translateY(-3px); background: #ff3648; }
+
+/* --- Responsive --- */
+@media(max-width:900px){
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 18px; }
+    .section h2 { font-size: 22px; }
+    .bottom-cta h2 { font-size: 28px; }
+    .msg-bubble { font-size: 14px; padding: 10px 12px; }
+}
+
+/* --- Button Responsive 1 --- */
+@media(max-width:400px){
+    .bottom-cta .cta-btn {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+}
+
+/* --- Button Responsive 2 --- */
+@media(max-width: 600px) {
+    .bottom-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Space between stacked buttons */
+    }
+
+    .bottom-cta .cta-btn {
+        margin: 0; /* Remove horizontal margin for stacked layout */
+        width: 80%; /* Optional: make buttons wider on mobile */
+        max-width: 300px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>Resolving Stuck Messages in a Slack Channel</h1>
+        
+    </div>
+</section>
+
+<div class="container">
+
+<!-- Situation -->
+<div class="section">
+    <h2>Situation</h2>
+    <p>A user reported that messages in one of their Slack channels were not sending.</p>
+    <ul>
+        <li>All other channels and DMs were working normally.</li>
+        <li>Internet connection was confirmed to be fine.</li>
+        <li>The user relied on the channel for important team communication, so this issue was urgent.</li>
+    </ul>
+    <p>This created a medium-level support challenge, requiring both diagnostic skill and stepwise troubleshooting.</p>
+</div>
+
+<!-- Task -->
+<div class="section">
+    <h2>Task</h2>
+    <p>My responsibilities were to:</p>
+    <ul>
+        <li>Restore the user’s ability to send messages in the affected channel.</li>
+        <li>Identify and address the underlying cause to prevent future disruption.</li>
+        <li>Communicate clearly, empathetically, and efficiently during the troubleshooting process.</li>
+        <li>Avoid unnecessary frustration by balancing urgency with methodical diagnosis.</li>
+    </ul>
+</div>
+
+<!-- Action -->
+<div class="section">
+    <h2>Action</h2>
+    <p>I followed a structured troubleshooting approach:</p>
+    <ol>
+
+        <li><strong>Confirmed the user’s environment and scope of the problem:</strong>
+        <ul>
+            <li>Verified the issue was only in a single channel.</li>
+            <li>Checked whether the user was a member and had permission to post.</li>
+            <li>Confirmed the user could post in other channels.</li>
+        </ul>
+        </li>
+        
+        <li><strong>Investigated potential causes within Slack:</strong>
+        <ul>
+            <li>Examined channel settings for read-only or shared restrictions.</li>
+            <li>Asked the user to test sending plain-text messages to rule out blocked attachments or links.</li>
+        </ul>
+        </li>
+
+        <li><strong>Applied progressive troubleshooting steps:</strong> 
+        <ul>
+            <li>Quick Refresh: refreshed the channel on desktop/mobile.</li>
+            <li>Leave & Rejoin: had the user leave and rejoin the channel to reset membership sync.</li>
+            <li>Checked Slack status for regional outages.</li>
+        </ul>
+        </li>
+        <li><strong>Escalated to ultimate resolution:</strong> 
+        <ul>
+            <li>Guided the user to clear app cache and reinstall Slack.</li>
+        </ul>
+        </li>
+        <li><strong>Confirmed resolution and provided preventive guidance:</strong>
+        <ul>
+            <li>Verified the user could send messages successfully.</li>
+            <li>Advised maintaining an updated Slack app to reduce recurrence.</li>
+            <li>Reassured the user that support is available for future issues.</li>
+        </ul>
+        </li>
+    
+    </ol>
+</div>
+
+<!-- Result -->
+<div class="section">
+    <h2>Result</h2>
+    <ul>
+        <li>User regained full messaging functionality in the affected channel.</li>
+        <li>Urgent team communication was restored without further delay.</li>
+        <li>Frustration minimized through empathetic and structured guidance.</li>
+        <li>Root cause mitigated (corrupted cache or outdated app) with preventive advice.</li>
+    </ul>
+
+</div>
+
+
+<!-- Live Support Conversation (Real Screenshots) -->
+<div class="section">
+    <h2>Live Support Conversation</h2>
+
+    <p>
+        Below is a real support interaction handled using a live chat tool (HubSpot). 
+        This showcases my ability to manage customer urgency, communicate clearly, 
+        and resolve issues efficiently in a real environment.
+    </p>
+
+    <div class="chat-gallery">
+        <img src="images/project6-chat1.png" alt="Support Chat Screenshot 1">
+        <img src="images/project6-chat2.png" alt="Support Chat Screenshot 2">
+        <img src="images/project6-chat3.png" alt="Support Chat Screenshot 3">
+        <img src="images/project6-chat4.png" alt="Support Chat Screenshot 4">
+        <img src="images/project6-chat5.png" alt="Support Chat Screenshot 5">
+        <img src="images/project6-chat6.png" alt="Support Chat Screenshot 6">
+        <img src="images/project6-chat7.png" alt="Support Chat Screenshot 7">
+        <img src="images/project6-chat8.png" alt="Support Chat Screenshot 8">
+        <img src="images/project6-chat9.png" alt="Support Chat Screenshot 9">
+        <img src="images/project6-chat10.png" alt="Support Chat Screenshot 10">
+        <img src="images/project6-chat11.png" alt="Support Chat Screenshot 11">
+        <img src="images/project6-chat12.png" alt="Support Chat Screenshot 12">
+        <img src="images/project6-chat13.png" alt="Support Chat Screenshot 13">
+        <img src="images/project6-chat14.png" alt="Support Chat Screenshot 14">
+        <img src="images/project6-chat15.png" alt="Support Chat Screenshot 15">
+        <img src="images/project6-chat16.png" alt="Support Chat Screenshot 16">
+        <img src="images/project6-chat17.png" alt="Support Chat Screenshot 17">
+        <img src="images/project6-chat18.png" alt="Support Chat Screenshot 18">
+        <img src="images/project6-chat19.png" alt="Support Chat Screenshot 19">
+        <img src="images/project6-chat20.png" alt="Support Chat Screenshot 20">
+        <img src="images/project6-chat21.png" alt="Support Chat Screenshot 21">
+        <img src="images/project6-chat22.png" alt="Support Chat Screenshot 22">
+        <img src="images/project6-chat23.png" alt="Support Chat Screenshot 23">
+        <img src="images/project6-chat24.png" alt="Support Chat Screenshot 24">
+        <img src="images/project6-chat25.png" alt="Support Chat Screenshot 25">
+        <img src="images/project6-chat26.png" alt="Support Chat Screenshot 26">
+        <img src="images/project6-chat27.png" alt="Support Chat Screenshot 27">
+        <img src="images/project6-chat28.png" alt="Support Chat Screenshot 28">
+        <img src="images/project6-chat29.png" alt="Support Chat Screenshot 29">
+        <img src="images/project6-chat30.png" alt="Support Chat Screenshot 30">
+        <img src="images/project6-chat31.png" alt="Support Chat Screenshot 31">
+        <img src="images/project6-chat32.png" alt="Support Chat Screenshot 32">
+        <img src="images/project6-chat33.png" alt="Support Chat Screenshot 33">
+        
+    </div>
+
+</div>
+
+
+<!-- Customer Outcome -->
+<div class="section">
+    <h2>Customer Outcome</h2>
+    <p>The user returned to productive collaboration immediately, confident that future issues could be addressed quickly.</p>
+</div>
+
+<!-- Why This Matters -->
+<div class="section">
+    <h2>Why This Matters</h2>
+    <ul class="strengths">
+        <p>This case demonstrates my ability to:</p>
+        <li>Handle medium-level support issues under urgency</li>
+        <li>Diagnose and isolate complex problems</li>
+        <li>Apply progressive troubleshooting from simple fixes to advanced resolution</li>
+        <li>Communicate clearly and empathetically to maintain user trust</li>
+        <li>Balance speed with root-cause thinking for long-term reliability</li>
+    </ul>
+</div>
+
+
+<!-- Key Skills Demonstrated -->
+<div class="section">
+    <h2>Key Skills Demonstrated</h2>
+    <ul class="strengths">
+        <li>SaaS Customer Support & Troubleshooting (Messaging/Channels)</li>
+        <li>Permissions & Channel Settings Diagnosis</li>
+        <li>App Cache & Reinstallation Management</li>
+        <li>Structured Problem-Solving</li>
+        <li>Customer Communication & Empathy</li>
+    </ul>
+</div>
+
+<!-- Key Takeaway -->
+<div class="section">
+    <h2>Key Takeaway</h2>
+    <p>Effective support goes beyond just “fixing the bug.”</p>
+    <p>It’s about guiding the user through progressive steps, maintaining confidence, and teaching preventive habits — all while minimizing workflow disruption.</p>
+</div>
+<!-- PS -->
+<div class="section">
+    <h2>PS: Scenario Environment</h2>
+    <p>This case study was conducted in a simulated support environment as part of my professional practice routine.</p> 
+    
+   <p>I regularly roleplay real-world customer support scenarios with an AI-based practice partner to sharpen my troubleshooting, communication, and customer management skills.</p> 
+   
+  <p>The goal is to replicate the types of issues support specialists handle daily while continuously improving response quality, clarity, and problem-solving under pressure.</p>
+</div>
+
+<!-- Bottom CTA -->
+<section class="bottom-cta">
+    <a href="projects.html" class="cta-btn">Back to Projects</a>
+    <a href="https://calendly.com/amaechipromise25/30min" class="cta-btn">Book a Call</a>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Customer Support Portfolio</title>
+<style>
+/* --- General Reset --- */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+/* --- Page Background --- */
+body { background: #151515; color: #ffffff; line-height: 1.6; }
+
+/* --- Container --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 100px 20px 60px 20px;
+    background: linear-gradient(90deg, #151515, #1a1a1a);
+}
+.hero h1 { color: #c51c34; font-size: 48px; margin-bottom: 15px; font-weight: 700; }
+.hero p { font-size: 20px; color: #cfcfcf; max-width: 700px; margin: 0 auto; }
+
+/* --- Projects Grid --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin: 60px 0;
+}
+
+/* --- Project Card --- */
+.project-card {
+    background: #1f1f1f;
+    border-radius: 15px;
+    padding: 25px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border: 1px solid #2a2a2a;
+}
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(197,28,52,0.4);
+    border-color: #c51c34;
+}
+.project-card h3 {
+    color: #c51c34;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+.project-card p {
+    color: #cfcfcf;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+.project-card .tool-badges {
+    margin-bottom: 15px;
+}
+.tool-badge {
+    display: inline-block;
+    background: #2a2a2a;
+    color: #c51c34;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-right: 8px;
+    margin-bottom: 6px;
+}
+.project-card .view-btn {
+    color: #ffffff;
+    background: #c51c34;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s, background 0.3s;
+    text-align: center;
+}
+.project-card .view-btn:hover {
+    transform: translateY(-3px);
+    background: #ff3648;
+}
+
+/* --- Bottom CTA Section --- */
+.bottom-cta {
+    text-align: center;
+    margin: 80px 0 100px 0;
+}
+.bottom-cta h2 {
+    color: #c51c34;
+    font-size: 36px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+.bottom-cta .cta-btn {
+    background: #c51c34;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s, background 0.3s;
+}
+.bottom-cta .cta-btn:hover {
+    transform: translateY(-3px);
+    background: #ff3648;
+}
+
+/* --- Responsive --- */
+@media(max-width:900px){
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 18px; }
+    .bottom-cta h2 { font-size: 28px; }
+}
+@media(max-width:600px){
+    .projects-grid { gap: 30px; }
+    .project-card h3 { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>My Projects & Case Studies</h1>
+        <p>Explore real customer support projects where I solved critical problems and delivered measurable results.</p>
+    </div>
+</section>
+
+<!-- Projects Grid -->
+<section class="projects">
+    <div class="container projects-grid">
+        
+        <!-- Project Card 1 -->
+        <div class="project-card">
+            <h3>Google Docs Permission Issue</h3>
+            <p>Resolved a critical Google Docs access issue under tight deadline, restoring collaboration for the team.</p>
+            <div class="tool-badges">
+               <!--<span class="tool-badge">Google Docs</span>
+                <span class="tool-badge">Slack</span>-->
+            </div>
+            <a href="project-one.html" class="view-btn">View This Project →</a>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card">
+            <h3>Text-Replacement Typing Issue</h3>
+            <p>Helped a user return to editing their document without losing productivity.</p>
+            <div class="tool-badges">
+                <!--<span class="tool-badge">Zendesk</span>
+                <span class="tool-badge">Intercom</span>-->
+            </div>
+            <a href="project-two.html" class="view-btn">View This Project →</a>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="project-card">
+            <h3>Mobile Storage Issue</h3>
+            <p>Implemented strategies to help a confused customer better understand how to use a product.</p>
+            <div class="tool-badges">
+                <!-- <span class="tool-badge">Freshdesk</span>
+                <span class="tool-badge">Slack</span>-->
+            </div>
+            <a href="project-three.html" class="view-btn">View This Project →</a>
+        </div>
+
+        <!-- Project Card 4 -->
+        <div class="project-card">
+            <h3>Slack Mobile Notification Failure Issue</h3>
+            <p>Diagnose the root cause of a notification failure and guided a user through troubleshooting in a clear, non-technical way while maintaining a calm, professional, and empathetic support experience</p>
+            <div class="tool-badges">
+                <span class="tool-badge">Hubspot</span>
+                <span class="tool-badge">Slack</span>
+            </div>
+            <a href="project-four.html" class="view-btn">View This Project →</a>
+        </div>
+
+        <!-- Project Card 5 -->
+        <div class="project-card">
+            <h3>Password Reset Failure</h3>
+            <p>Guided a user through troubleshooting in a clear, non-technical way and maintained a calm, professional, and empathetic support experience.</p>
+            <div class="tool-badges">
+                <span class="tool-badge">Hubspot</span>
+                <span class="tool-badge">Slack</span>
+            </div>
+            <a href="project-five.html" class="view-btn">View This Project →</a>
+        </div>
+
+        <!-- Project Card 6 -->
+        <div class="project-card">
+            <h3>Stuck Messages in a Slack Channel Issue</h3>
+            <p>Restored a user’s ability to send messages in a slack channel and avoided unnecessary frustration by balancing urgency with methodical diagnosis.</p>
+            <div class="tool-badges">
+                <span class="tool-badge">Hubspot</span>
+                <span class="tool-badge">Slack</span>
+            </div>
+            <a href="project-six.html" class="view-btn">View This Project →</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="bottom-cta">
+    <div class="container">
+        <h2>Interested in working together?</h2>
+        <a href="https://calendly.com/amaechipromise25/30min" class="cta-btn">Book a Call</a>
+    </div>
+</section>
+
+</body>
+</html>

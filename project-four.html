@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resolving Slack Mobile Notification Failure Case Study | Customer Support Portfolio</title>
+<style>
+/* --- General Reset --- */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+/* --- Page Background --- */
+body { background: #151515; color: #ffffff; line-height: 1.6; }
+
+/* --- Container --- */
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px 20px;
+    background: linear-gradient(90deg, #151515, #1a1a1a);
+}
+.hero h1 { color: #c51c34; font-size: 42px; margin-bottom: 15px; font-weight: 700; }
+.hero p { font-size: 20px; color: #cfcfcf; max-width: 800px; margin: 0 auto; }
+
+/* --- Section Styling --- */
+.section {
+    background: #1f1f1f;
+    padding: 30px 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    border-left: 5px solid #c51c34;
+    transition: transform 0.3s ease;
+}
+.section:hover { transform: translateY(-3px); }
+.section h2 {
+    color: #c51c34;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+.section p, .section li { color: #cfcfcf; margin-bottom: 12px; font-size: 16px; }
+
+/* --- Lists --- */
+ul { margin-left: 20px; }
+li { margin-bottom: 8px; }
+
+/* --- Live Chat Section --- */
+.chat-container {
+    background: #202020;
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 80%;
+}
+.customer { flex-direction: row; }
+.customer .msg-bubble { background: #2a2a2a; color: #ffffff; border-radius: 15px 15px 15px 0; padding: 12px 15px; }
+.agent { flex-direction: row-reverse; align-self: flex-end; }
+.agent .msg-bubble { background: #c51c34; color: #ffffff; border-radius: 15px 15px 0 15px; padding: 12px 15px; }
+.msg-avatar { width: 35px; height: 35px; border-radius: 50%; background: #c51c34; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #fff; flex-shrink: 0; font-size: 14px; }
+
+
+
+/* --- Chat Screenshot Gallery --- */
+.chat-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.chat-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.chat-gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* --- Responsive Gallery --- */
+@media(max-width: 900px) {
+    .chat-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 500px) {
+    .chat-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- Strengths & Takeaways --- */
+.strengths { display: flex; flex-direction: column; gap: 15px; }
+.strengths li { list-style: disc inside; }
+
+/* --- Bottom CTA --- */
+.bottom-cta {
+    text-align: center;
+    margin: 60px 0 100px 0;
+}
+.bottom-cta h2 { color: #c51c34; font-size: 32px; margin-bottom: 20px; font-weight: 700; }
+
+.bottom-cta .cta-btn {
+    background: #c51c34;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s, background 0.3s;
+    margin: 0 10px;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    
+    
+}
+.bottom-cta .cta-btn:hover { transform: translateY(-3px); background: #ff3648; }
+
+/* --- Responsive --- */
+@media(max-width:900px){
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 18px; }
+    .section h2 { font-size: 22px; }
+    .bottom-cta h2 { font-size: 28px; }
+    .msg-bubble { font-size: 14px; padding: 10px 12px; }
+}
+
+/* --- Button Responsive 1 --- */
+@media(max-width:400px){
+    .bottom-cta .cta-btn {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+}
+
+/* --- Button Responsive 2 --- */
+@media(max-width: 600px) {
+    .bottom-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Space between stacked buttons */
+    }
+
+    .bottom-cta .cta-btn {
+        margin: 0; /* Remove horizontal margin for stacked layout */
+        width: 80%; /* Optional: make buttons wider on mobile */
+        max-width: 300px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>Resolving Slack Mobile Notification Failure</h1>
+        
+    </div>
+</section>
+
+<div class="container">
+
+<!-- Situation -->
+<div class="section">
+    <h2>Situation</h2>
+    <p>A user reported that they were not receiving any notifications on their mobile device from Slack, causing them to miss important team communications and impacting their workflow.</p>
+    <p>The issue had started recently, making it unclear whether the cause was:</p>
+    <ul>
+        <li>App misconfiguration</li>
+        <li>Device-level restrictions</li>
+        <li>Or a temporary system setting</li>
+    </ul>
+</div>
+
+<!-- Task -->
+<div class="section">
+    <h2>Task</h2>
+    <p>My responsibility was to:</p>
+    <ul>
+        <li>Diagnose the root cause of the notification failure.</li>
+        <li>Guide the user through troubleshooting in a clear, non-technical way</li>
+        <li>Restore real-time notifications as quickly as possible.</li>
+        <li>Maintain a calm, professional, and empathetic support experience.</li>
+    </ul>
+</div>
+
+<!-- Action -->
+<div class="section">
+    <h2>Action</h2>
+    <p>To efficiently resolve the issue, I applied a structured troubleshooting approach:</p>
+    <ul>
+        <li><strong>Clarified the problem scope:</strong>
+        <ul>
+            <li>Identified device type (Android)</li>
+            <li>Confirmed notifications were completely inactive (not partial)</li>
+            <li>Established timeline (issue started recently)</li>
+        </ul>
+        </li>
+        
+        <li><strong>Narrowed down potential causes:</strong>
+        <ul>
+            <li>Verified Slack notification settings were correctly configured</li>
+            <li>Confirmed the user was in the correct workspace</li>
+            <li>Eliminated common issues like misconfigured notification preferences</li>
+        </ul>
+        </li>
+
+        <li><strong>Used guided troubleshooting instead of assumptions:</strong> Directed the user to Slack’s built-in “Troubleshoot Notifications” tool. This reduced guesswork and surfaced system-level insights quickly</li>
+        <li><strong>Identified the root cause:</strong> Discovered notifications were paused (Do Not Disturb mode) without the user realizing.</li>
+        <li><strong>Delivered a clear resolution path:</strong>
+        <ul>
+            <li>Provided simple step-by-step instructions to resume notifications</li>
+            <li>Ensured the user understood what caused the issue to prevent recurrence</li>
+        </ul>
+        </li>
+    </ul>
+</div>
+
+<!-- Result -->
+<div class="section">
+    <h2>Result</h2>
+    <ul>
+        <li>Notifications were successfully restored in real time</li>
+        <li>User immediately began receiving missed messages</li>
+        <li>Prevented further communication breakdown within the user’s team</li>
+        <li>Reduced frustration and restored confidence in the platform</li>
+    </ul>
+</div>
+
+
+<!-- Live Support Conversation (Real Screenshots) -->
+<div class="section">
+    <h2>Live Support Conversation</h2>
+
+    <p>
+        Below is a real support interaction handled using a live chat tool (HubSpot). 
+        This showcases my ability to manage customer urgency, communicate clearly, 
+        and resolve issues efficiently in a real environment.
+    </p>
+
+    <div class="chat-gallery">
+        <img src="images/project4-chat1.png" alt="Support Chat Screenshot 1">
+        <img src="images/project4-chat2.png" alt="Support Chat Screenshot 2">
+        <img src="images/project4-chat3.png" alt="Support Chat Screenshot 3">
+        <img src="images/project4-chat4.png" alt="Support Chat Screenshot 4">
+        <img src="images/project4-chat5.png" alt="Support Chat Screenshot 5">
+        <img src="images/project4-chat6.png" alt="Support Chat Screenshot 6">
+        <img src="images/project4-chat7.png" alt="Support Chat Screenshot 7">
+        <img src="images/project4-chat8.png" alt="Support Chat Screenshot 8">
+        <img src="images/project4-chat9.png" alt="Support Chat Screenshot 9">
+        <img src="images/project4-chat10.png" alt="Support Chat Screenshot 10">
+        <img src="images/project4-chat11.png" alt="Support Chat Screenshot 12">
+        <img src="images/project4-chat12.png" alt="Support Chat Screenshot 13">
+        <img src="images/project4-chat13.png" alt="Support Chat Screenshot 14">
+        <img src="images/project4-chat14.png" alt="Support Chat Screenshot 15">
+        <img src="images/project4-chat15.png" alt="Support Chat Screenshot 16">
+        <img src="images/project4-chat16.png" alt="Support Chat Screenshot 17">
+        <img src="images/project4-chat17.png" alt="Support Chat Screenshot 18">
+        <img src="images/project4-chat18.png" alt="Support Chat Screenshot 19">
+        <img src="images/project4-chat19.png" alt="Support Chat Screenshot 20">
+        <img src="images/project4-chat20.png" alt="Support Chat Screenshot 21">
+        <img src="images/project4-chat21.png" alt="Support Chat Screenshot 11">
+        <img src="images/project4-chat22.png" alt="Support Chat Screenshot 22">
+    </div>
+
+</div>
+
+
+<!-- Customer Outcome -->
+<div class="section">
+    <h2>Customer Outcome</h2>
+    <p>The user expressed relief and appreciation after resolving what initially felt like a critical issue affecting their work.</p>
+</div>
+
+
+<!-- Why This Matters -->
+<div class="section">
+    <h2>Why This Matters</h2>
+    <ul class="strengths">
+        <p>This case demonstrates my ability to:</p>
+        <li>Diagnose issues systematically instead of guessing</li>
+        <li>Leverage platform tools to speed up resolution</li>
+        <li>Communicate clearly with non-technical users</li>
+        <li>Resolve issues efficiently, minimizing downtime</li>
+        <li>Deliver a positive customer experience under frustration</li>
+    </ul>
+</div>
+
+
+<!-- Key Skills Demonstrated -->
+<div class="section">
+    <h2>Key Skills Demonstrated</h2>
+    <ul class="strengths">
+        <li>SaaS Customer Support (Slack)</li>
+        <li>Troubleshooting & Root Cause Analysis</li>
+        <li>Customer Communication & Empathy</li>
+        <li>Guided Problem Solving</li>
+        <li>Technical Issue Simplification</li>
+    </ul>
+</div>
+
+
+
+<!-- PS -->
+<div class="section">
+    <h2>PS: Scenario Environment</h2>
+    <p>This case study was conducted in a simulated support environment as part of my professional practice routine.</p> 
+    
+   <p>I regularly roleplay real-world customer support scenarios with an AI-based practice partner to sharpen my troubleshooting, communication, and customer management skills.</p> 
+   
+  <p>The goal is to replicate the types of issues support specialists handle daily while continuously improving response quality, clarity, and problem-solving under pressure.</p>
+</div>
+
+<!-- Bottom CTA -->
+<section class="bottom-cta">
+    <a href="projects.html" class="cta-btn">Back to Projects</a>
+    <a href="https://calendly.com/amaechipromise25/30min" class="cta-btn">Book a Call</a>
+</section>
+
+</div>
+</body>
+</html>

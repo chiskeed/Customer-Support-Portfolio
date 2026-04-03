@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text-Replacement Typing Issue Case Study | Customer Support Portfolio</title>
+<style>
+/* --- General Reset --- */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+/* --- Page Background --- */
+body { background: #151515; color: #ffffff; line-height: 1.6; }
+
+/* --- Container --- */
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px 20px;
+    background: linear-gradient(90deg, #151515, #1a1a1a);
+}
+.hero h1 { color: #c51c34; font-size: 42px; margin-bottom: 15px; font-weight: 700; }
+.hero p { font-size: 20px; color: #cfcfcf; max-width: 800px; margin: 0 auto; }
+
+/* --- Section Styling --- */
+.section {
+    background: #1f1f1f;
+    padding: 30px 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    border-left: 5px solid #c51c34;
+    transition: transform 0.3s ease;
+}
+.section:hover { transform: translateY(-3px); }
+.section h2 {
+    color: #c51c34;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+.section p, .section li { color: #cfcfcf; margin-bottom: 12px; font-size: 16px; }
+
+/* --- Lists --- */
+ul { margin-left: 20px; }
+li { margin-bottom: 8px; }
+
+/* --- Live Chat Section --- */
+.chat-container {
+    background: #202020;
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 80%;
+}
+.customer { flex-direction: row; }
+.customer .msg-bubble { background: #2a2a2a; color: #ffffff; border-radius: 15px 15px 15px 0; padding: 12px 15px; }
+.agent { flex-direction: row-reverse; align-self: flex-end; }
+.agent .msg-bubble { background: #c51c34; color: #ffffff; border-radius: 15px 15px 0 15px; padding: 12px 15px; }
+.msg-avatar { width: 35px; height: 35px; border-radius: 50%; background: #c51c34; display: flex; justify-content: center; align-items: center; font-weight: bold; color: #fff; flex-shrink: 0; font-size: 14px; }
+
+/* --- Strengths & Takeaways --- */
+.strengths { display: flex; flex-direction: column; gap: 15px; }
+.strengths li { list-style: disc inside; }
+
+/* --- Bottom CTA --- */
+.bottom-cta {
+    text-align: center;
+    margin: 60px 0 100px 0;
+}
+.bottom-cta h2 { color: #c51c34; font-size: 32px; margin-bottom: 20px; font-weight: 700; }
+
+.bottom-cta .cta-btn {
+    background: #c51c34;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s, background 0.3s;
+    margin: 0 10px;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    
+    
+}
+.bottom-cta .cta-btn:hover { transform: translateY(-3px); background: #ff3648; }
+
+/* --- Responsive --- */
+@media(max-width:900px){
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 18px; }
+    .section h2 { font-size: 22px; }
+    .bottom-cta h2 { font-size: 28px; }
+    .msg-bubble { font-size: 14px; padding: 10px 12px; }
+}
+
+/* --- Button Responsive 1 --- */
+@media(max-width:400px){
+    .bottom-cta .cta-btn {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+}
+
+/* --- Button Responsive 2 --- */
+@media(max-width: 600px) {
+    .bottom-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Space between stacked buttons */
+    }
+
+    .bottom-cta .cta-btn {
+        margin: 0; /* Remove horizontal margin for stacked layout */
+        width: 80%; /* Optional: make buttons wider on mobile */
+        max-width: 300px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>Resolving a Text-Replacement Typing Issue in Google Docs
+        </h1>
+        
+    </div>
+</section>
+
+<div class="container">
+
+<!-- Situation -->
+<div class="section">
+    <h2>Situation</h2>
+    <p>A user reported an unusual typing behavior while editing a document in Google Docs. Instead of inserting new text and pushing existing text forward, every new character typed replaced the existing characters.
+    </p>
+
+<p>
+This made it impossible for the user to properly edit the document and caused confusion because the document had worked normally before.
+</p>
+
+<p>
+The user needed a quick solution so they could return to editing their document without losing productivity.
+</p>
+    
+</div>
+
+<!-- Task -->
+<div class="section">
+    <h2>Task</h2>
+    <p>My goal was to:</p>
+    <ul>
+        <li>Identify the cause of the unusual typing behavior.</li>
+        <li>Guide the user through troubleshooting steps in a clear and stress-free manner.</li>
+        <li>Restore normal typing functionality so the user could continue editing their document.</li>
+        <p>At the same time, I aimed to maintain empathetic communication and structured troubleshooting, which are key principles in high-quality customer support.</p>
+    </ul>
+</div>
+
+<!-- Action -->
+<div class="section">
+    <h2>Action</h2>
+    <p>To diagnose the issue efficiently, I first asked a few targeted questions to understand the user's environment and confirm the exact behavior they were experiencing.</p>
+
+<p>After narrowing down the possible causes, I considered whether the issue might be related to overtype mode, which can cause typed characters to replace existing ones.</p>
+
+<p>Although Google Docs does not include a visible overtype setting within its preferences, the behavior can still occur due to keyboard-level input modes.</p>
+
+<p>I then guided the user through a simple troubleshooting step:
+
+Press the Insert (Ins) key on the keyboard once to toggle the typing mode.</p>
+
+<p>This step is commonly used to disable overtype behavior in many text editing environments.</p>
+
+<p>I also explained why pressing the Insert key works which prevented confusion.</p>
+
+<p>Throughout the process, I ensured my instructions were:</p>
+<ul>
+    <li>Clear</li>
+    <li>Step-by-step</li>
+    <li>Easy for non-technical users to follow
+    </li>
+</ul>
+
+</div>
+
+<!-- Result -->
+<div class="section">
+    <h2>Result</h2>
+    <p>Pressing the Insert key immediately resolved the issue.</p>
+
+<p>The document returned to normal typing behavior, allowing the user to insert text without overwriting existing content.</p>
+
+<p>As a result:</p>
+<ul>
+    <li>The user regained full editing functionality.</li>
+    <li>Their productivity was restored.</li>
+    <li>The issue was resolved quickly with minimal disruption.</li>
+</ul>
+
+
+</p>
+</div>
+
+<!-- Live Support Conversation -->
+<div class="section">
+    <h2>Live Support Conversation</h2>
+    <div class="chat-container">
+        <!-- Customer Message -->
+        <div class="message customer">
+            <div class="msg-avatar">C</div>
+            <div class="msg-bubble"><p>Hi… I’m having a strange problem with a Google Doc and it’s driving me crazy.</p>
+
+<p>Every time I try to type in the document, the text keeps overwriting the words in front of it instead of pushing them forward.</p>
+
+<p>So if I type a sentence in the middle of a paragraph, the letters start replacing the existing text instead of inserting normally.</p>
+
+<p>I don’t remember turning on anything like this and it’s making editing really difficult.</p>
+
+<p>Is there a way to fix this? I’ve already tried refreshing the page but it’s still happening.</p>
+
+</div>
+        </div>
+        <!-- Agent Message -->
+        <div class="message agent">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble"><p>Hi Andrew,</p>
+
+<p>Thanks for bringing this issue to our attention. I understand how frustrating situations like this can be. I’ll guide you through it step by step so you can get back to editing your document seamlessly.</p>
+
+<p>To serve you better, could you kindly answer these quick questions:</p>
+
+<p>1. Is your current goal to edit an existing document by adding more text to it?</p>
+
+<p>2. Are you the owner of this document, and does anyone else currently have editor access?</p>
+
+<p>3. When was the last time you successfully edited the document, and when did you begin experiencing this issue?</p>
+
+<p>Even a brief response will go a long way in helping us pinpoint the problem. In the meantime, I’ll also test the process on a personal document to identify any possible loopholes.
+</p>
+</div>
+        </div>
+        <!-- More random messages -->
+        <div class="message customer">
+            <div class="msg-avatar">C</div>
+            <div class="msg-bubble"><p>Thanks for responding so quickly.</p>
+
+<p>To answer your questions:</p>
+
+<p>1. Yes, my goal is just to edit an existing document by adding more text in different places.</p>
+
+<p>2. I’m actually the owner of the document, and two teammates also have editor access.</p>
+
+<p>3. The last time I edited it successfully was earlier today. I opened it again about 20 minutes ago and that’s when I noticed the issue.</p>
+
+<p>Also, just to clarify what’s happening:</p>
+
+<p>If I place my cursor in the middle of a sentence and start typing, it replaces the letters in front of it instead of inserting new text.</p>
+
+<p>For example, if the sentence says:
+"The meeting will happen tomorrow"
+and I click before tomorrow and type something, the word tomorrow starts disappearing as I type.</p>
+
+<p>I hope that explanation helps.</p>
+</div>
+        </div>
+        
+        <div class="message agent">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble">
+                <p>Thanks for providing those details. Based on what you’ve shared, my guess is that you’re working from a laptop or desktop, since this issue typically comes up on those devices. If that’s the case, please try the following:</p>
+
+<p>Press the Insert (Ins) key on your keyboard once. It’s usually located near the Backspace key or within the top‑right function keys.</p>
+
+<p>On Laptops:
+You may need to press Fn + Insert.</p>
+
+<p>Please give this a try and keep me updated on how it goes. I’ll be here to assist further if needed.</p>
+            </div>
+        </div>
+        <!-- Customer Message -->
+        <div class="message customer">
+            <div class="msg-avatar">C</div>
+            <div class="msg-bubble"><p>Hi, I just tested it, and it’s working perfectly now! 🎉</p>
+
+<p>I can type anywhere in the document, and none of the existing text is getting overwritten.</p>
+
+<p>Thank you so much for guiding me through that so clearly. I was really stressed because I didn’t know why it suddenly started happening, but now everything’s back to normal.</p>
+
+<p>Really appreciate your help!</p>
+
+</div>
+        </div>
+       
+       <!-- Agent Message -->
+        <div class="message agent">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble">
+                <p>I’m glad to hear everything worked out. The issue occurred because your document was in Overtype Mode, which causes new text to replace existing text instead of pushing it forward. Pressing the Insert key toggled the typing mode back to normal, which resolved the problem.</p>
+
+<p>We’re always here to help, so please don’t hesitate to reach out anytime you need support.</p>
+
+            </div>
+        </div>
+        <!--  -->
+    </div>
+</div>
+
+<!-- Strengths Demonstrated -->
+<div class="section">
+    <h2>Strengths Demonstrated</h2>
+    <ul class="strengths">
+        <li>Problem diagnosis through structured questioning
+</li>
+        <li>Technical troubleshooting for document-editing environments</li>
+        <li>Clear and user-friendly communication</li>
+        <li>Empathy and reassurance during user frustration</li>
+        <li>Ability to simplify technical fixes into actionable steps</li>
+    </ul>
+</div>
+
+<!-- Key Takeaway -->
+<div class="section">
+    <h2>PS: Scenario Environment</h2>
+    <p>This troubleshooting scenario was conducted in a professional roleplay environment designed to simulate real customer support interactions.</p>
+
+<p>The exercise was created to mirror the type of technical support issues commonly encountered in SaaS products such as Google Docs.</p>
+
+<p>Working in this simulated environment allowed me to practice:</p>
+<ul>
+    <li>real-time problem diagnosis</li>
+    <li>structured troubleshooting</li>
+    <li>professional customer communication</li>
+</ul>
+
+ 
+
+<p>while maintaining the same standards expected in an actual support role.
+</p>
+</div>
+
+<!-- Bottom CTA -->
+<section class="bottom-cta">
+    <a href="projects.html" class="cta-btn">Back to Projects</a>
+    <a href="https://calendly.com/amaechipromise25/30min" class="cta-btn">Book a Call</a>
+</section>
+
+</div>
+</body>
+</html>
